@@ -1,26 +1,5 @@
-version: '3.8'
-
 services:
-  node:
+  node-socket-server:
     build: .
-    container_name: node-app
-    expose:
-      - "3000"
-    networks:
-      - webnet
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx-proxy
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./ssl:/etc/nginx/ssl
     ports:
-      - "2002:2002"
-    depends_on:
-      - node
-    networks:
-      - webnet
-
-networks:
-  webnet:
+      - "3000:3000"
